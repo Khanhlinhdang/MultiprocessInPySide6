@@ -3,15 +3,14 @@ from concurrent.futures import Future
 from PySide6.QtWidgets import QApplication, QMainWindow, QLabel, QPushButton, QVBoxLayout, QWidget
 import pandas as pd
 
-from return_worker import ReturnProcess, ProcessPool_Executor,ThreadPool_Executor
+from worker import ReturnProcess, ThreadPoolExecutor_global,ProcessPoolExecutor_global
 # Hàm xử lý nặng (chạy trong process pool)
-
 class MainWindow(QMainWindow):
     n = 0
     def __init__(self):
         super().__init__()
-        ProcessPool_Executor.submit(print,"start process")
-        ProcessPool_Executor.submit(print,"start threads")
+        "Khởi tạo ProcessPoolExecutor và ThreadPoolExecutor toàn cục"
+        ProcessPoolExecutor_global.submit(print, "start process")
         self.setup_ui()
         
     def setup_ui(self):
@@ -53,8 +52,7 @@ class MainWindow(QMainWindow):
 
     def task_finished(self):
         self.btn_start.setEnabled(True)
-        self.label.setText("Task completed!")
-        self.future.result()  # Xử lý exception nếu có
+        # self.label.setText("Task completed!")
 
     def closeEvent(self, event):
         self.executor.close()

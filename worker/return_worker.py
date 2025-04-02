@@ -1,7 +1,7 @@
 from concurrent.futures import Future
 from typing import Optional
 from PySide6.QtCore import Signal,QObject
-from .threadpool import Heavy_ProcessPoolExecutor_global, ThreadPoolExecutor_global
+from .threadpool import ProcessPoolExecutor_global, ThreadPoolExecutor_global
 
 class HeavyProcess(QObject):
     update_signal = Signal(object)
@@ -12,7 +12,7 @@ class HeavyProcess(QObject):
         self.callback = callback
         self.args = args
         self.kwargs = kwargs
-        self.executor = Heavy_ProcessPoolExecutor_global
+        self.executor = ProcessPoolExecutor_global
     #     self.thread = ThreadPoolExecutor_global
     # def start(self):
     #     self.thread.submit(
