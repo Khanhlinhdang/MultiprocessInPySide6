@@ -6,7 +6,7 @@ from concurrent.futures import ProcessPoolExecutor,ThreadPoolExecutor
 
 global ProcessPool_Executor,ThreadPool_Executor
 
-ProcessPool_Executor,ThreadPool_Executor = ProcessPoolExecutor(max_workers=4,max_tasks_per_child=10), ThreadPoolExecutor(max_workers=4)
+ProcessPool_Executor,ThreadPool_Executor = ProcessPoolExecutor(max_workers=4), ThreadPoolExecutor(max_workers=4)
 
 class ReturnProcess():
     update_signal = Signal(object)
