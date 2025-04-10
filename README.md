@@ -14,3 +14,9 @@ The way to use multiprocess in pyside6 project
   `from worker.return_worker import ReturnProcess`
 
   dùng thể xử lý kết quả trả về của hàm `self.fn = fn` bằng hàm `self.callback = callback`
+
+Dự án sử dụng:
+
+ATK: [AutoTradingKit(ATK)](https://www.facebook.com/groups/748831980507126)
+
+Github: [ATK](https://github.com/Khanhlinhdang/AutoTradingKit)
